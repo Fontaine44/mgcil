@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class YapperComponent implements OnInit {
   buttons: any = null;
-  api: string = 'http://localhost:5000';
+  api: string = 'https://mgcil.onrender.com';
   suggestion: string = '';
   currentSound?: HTMLAudioElement;
 
