@@ -1,0 +1,23 @@
+<div class="yapper d-flex flex-column h-100">
+  <h1 class="text-center">yapper board</h1>
+
+  @if (buttons) {
+    <div class="yapper__button-grid">
+      @for (button of buttons; track button.name; let index = $index) {
+        <app-sound-button
+          [name]="button.name"
+          [sound]="button.sound"
+          [color]="button.color"
+          (buttonClicked)="playSound(index)"
+        ></app-sound-button>
+      }
+    </div>
+  } 
+  @else {
+    <div class="d-flex justify-content-center align-items-center flex-grow-1">
+      <span class="me-2">Loading sounds womp womp...</span>
+      <div class="spinner-grow" role="status">
+      </div>
+    </div>
+  }
+</div>

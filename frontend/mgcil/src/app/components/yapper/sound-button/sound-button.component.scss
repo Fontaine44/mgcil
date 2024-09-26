@@ -1,0 +1,68 @@
+.sound-button {
+  &--sm {
+    width: 94px;
+  }
+
+  &--lg {
+    width: 200px;
+  }
+
+  &__button {
+    position: absolute;
+    border: 0;
+    display: block;
+    -webkit-tap-highlight-color: transparent;
+
+    &--sm {
+      width: 94px;
+      height: 89px;
+      background: url(../../../../../public/transparent_button_small_sprite.png) no-repeat;
+      background-position: -5px -5px;
+    }
+
+    &--lg {
+      width: 200px;
+      height: 190px;
+      background: url(../../../../../public/transparent_button_sprite.png) no-repeat;
+      background-position: -5px -5px;
+    }
+  }
+
+  &__background {
+
+    &--sm {
+      width: 86px;
+      height: 84px;
+      margin-top: 3px;
+      margin-left: 3px;
+      position: absolute;
+    }
+
+    &--lg {
+      width: 188px;
+      height: 174px;
+      margin-top: 7px;
+      margin-left: 6px;
+      position: absolute;
+    }
+  }
+
+  &__shadow {
+    &--sm {
+      width: 94px;
+      height: 89px;
+      background: url(../../../../../public/transparent_button_small_shadow.png) no-repeat;
+      margin-bottom: 5px;
+    }
+
+    &--lg {
+      width: 200px;
+      height: 190px;
+      background: url(../../../../../public/transparent_button_shadow.png) no-repeat;
+    }
+  }
+}
+
+.circle {
+  border-radius: 50%;
+}

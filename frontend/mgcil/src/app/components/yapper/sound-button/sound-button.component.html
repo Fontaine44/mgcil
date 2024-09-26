@@ -1,0 +1,32 @@
+<div
+  [ngClass]="{
+    'sound-button--sm': size === 'sm',
+    'sound-button--lg': size === 'lg'
+  }"
+>
+  <div
+    class="circle"
+    [ngClass]="{
+      'sound-button__background--sm': size === 'sm',
+      'sound-button__background--lg': size === 'lg'
+    }" 
+    [ngStyle]="{'background-color': color}"
+  ></div>
+
+  <button
+    #button
+    class="sound-button__button"
+    [ngClass]="{
+      'sound-button__button--sm': size === 'sm',
+      'sound-button__button--lg': size === 'lg'
+    }"
+    title="Play sound"
+    (pointerdown)="onClickStart()"
+    (pointerup)="onClickEnd()"
+    (pointerleave)="onClickEnd()"
+  ></button>
+
+  <div class="sound-button__shadow--sm"></div>
+
+  <div class="text-center text-wrap lh-1">{{name}}</div>
+</div>

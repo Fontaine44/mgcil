@@ -1,0 +1,67 @@
+[
+  {
+    "name": "womp womp",
+    "sound": "wompwomp",
+    "color": "red"
+  },
+  {
+    "name": "COMBIEN!?",
+    "sound": "combien",
+    "color": "blue"
+  },
+  {
+    "name": "What the helll",
+    "sound": "whatthehell",
+    "color": "green"
+  },
+  {
+    "name": "Can I pet that dog?",
+    "sound": "petdog",
+    "color": "brown"
+  },
+  {
+    "name": "English or Spanish?",
+    "sound": "englishspanish",
+    "color": "purple"
+  },
+  {
+    "name": "meow meow meow meow",
+    "sound": "meow",
+    "color": "pink"
+  },
+  {
+    "name": "I just lost my dawg",
+    "sound": "lostdawg",
+    "color": "red"
+  },
+  {
+    "name": "Harry Potter Chess scene",
+    "sound": "hpchess",
+    "color": "blue"
+  },
+  {
+    "name": "womp wmop (James Charles)",
+    "sound": "wompwompjc",
+    "color": "purple"
+  },
+  {
+    "name": "Metal Pipe",
+    "sound": "pipe",
+    "color": "green"
+  },
+  {
+    "name": "Outro song",
+    "sound": "outrosong",
+    "color": "brown"
+  },
+  {
+    "name": "Emotional damage",
+    "sound": "emotionaldamage",
+    "color": "red"
+  },
+  {
+    "name": "Ain't No Party Like A Diddy Party",
+    "sound": "diddyparty",
+    "color": "black"
+  }
+]
