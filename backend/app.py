@@ -42,7 +42,6 @@ def post_suggestions():
     response = requests.put(BUCKET_URL+'suggestions.txt', data=suggestions)
 
     return {"status": "Received"}, 200
-    
 
 if __name__ == '__main__':
     app.run(debug=True)
