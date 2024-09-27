@@ -63,5 +63,30 @@
     "name": "Ain't No Party Like A Diddy Party",
     "sound": "diddyparty",
     "color": "black"
+  },
+  {
+    "name": "33 Max Verstappen",
+    "sound": "33max",
+    "color": "orange"
+  },
+  {
+    "name": "Ay my name its Noémie",
+    "sound": "noemie",
+    "color": "pink"
+  },
+  {
+    "name": "Goofy sound effects",
+    "sound": "goofysounds",
+    "color": "red"
+  },
+  {
+    "name": "What's heavier",
+    "sound": "whatsheavier",
+    "color": "blue"
+  },
+  {
+    "name": "LA poly",
+    "sound": "lapoly",
+    "color": "red"
   }
 ]
