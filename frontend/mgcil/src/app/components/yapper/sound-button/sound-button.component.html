@@ -21,9 +21,7 @@
       'sound-button__button--lg': size === 'lg'
     }"
     title="Play sound"
-    (pointerdown)="onClickStart()"
-    (pointerup)="onClickEnd()"
-    (pointerleave)="onClickEnd()"
+    (click)="onClick()"
   ></button>
 
   <div class="sound-button__shadow--sm"></div>

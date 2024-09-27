@@ -18,7 +18,7 @@ export class SoundButtonComponent {
   
   @ViewChild('button', { static: true }) button: any;
 
-  onClickStart() {
+  onClick() {
     this.buttonClicked.emit();
 
     const buttonElement = this.button.nativeElement as HTMLElement;
@@ -27,10 +27,9 @@ export class SoundButtonComponent {
     } else {
       buttonElement.style.backgroundPosition = '-215px -5px';
     }
-  }
 
-  onClickEnd() {
-    const buttonElement = this.button.nativeElement as HTMLElement;
-    buttonElement.style.backgroundPosition = '-5px -5px';
+    setTimeout(() => {
+      buttonElement.style.backgroundPosition = '-5px -5px';
+    }, 300);
   }
 }
