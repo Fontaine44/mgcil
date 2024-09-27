@@ -14,6 +14,10 @@ CORS(app)
 def home():
     return 'mgcil API is running'
 
+@app.route('/healthy')
+def healthy():
+    return '', 200
+
 @app.route('/sounds/<name>', methods=['GET'])
 def get_sound(name):
     mp3_file_path = f'static/sounds/{name}.mp3'
