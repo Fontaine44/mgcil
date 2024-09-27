@@ -88,5 +88,85 @@
     "name": "LA poly",
     "sound": "lapoly",
     "color": "red"
+  },
+  {
+    "name": "Pakistan interview 1",
+    "sound": "pakistan1",
+    "color": "green"
+  },
+  {
+    "name": "Pakistan interview 2",
+    "sound": "pakistan2",
+    "color": "green"
+  },
+  {
+    "name": "Pakistan interview 3",
+    "sound": "pakistan3",
+    "color": "green"
+  },
+  {
+    "name": "Pakistan interview 4",
+    "sound": "pakistan4",
+    "color": "green"
+  },
+  {
+    "name": "Pakistan interview wah",
+    "sound": "pakistanwah",
+    "color": "green"
+  },
+  {
+    "name": "Peanut buttah",
+    "sound": "peanutbuttah",
+    "color": "peru"
+  },
+  {
+    "name": "grapeee",
+    "sound": "grapeee",
+    "color": "purple"
+  },
+  {
+    "name": "Nice shot!",
+    "sound": "niceshot",
+    "color": "blue"
+  },
+  {
+    "name": "Hawk tuah",
+    "sound": "hawktuah",
+    "color": "red"
+  },
+  {
+    "name": "Roblox death",
+    "sound": "robloxdeath",
+    "color": "black"
+  },
+  {
+    "name": "erm what the sigma",
+    "sound": "whatthesigma",
+    "color": "blue"
+  },
+  {
+    "name": "RAWR",
+    "sound": "rawr",
+    "color": "steelblue"
+  },
+  {
+    "name": "oh my god bro oh hell nah man",
+    "sound": "ohmygodbro",
+    "color": "yellow"
+  },
+  {
+    "name": "Galaxy meme",
+    "sound": "galaxy",
+    "color": "midnightblue"
+  },
+  {
+    "name": "The Feeling",
+    "sound": "thefeeling",
+    "color": "orange"
+  },
+  {
+    "name": "Pis Bowser",
+    "sound": "pisbowser",
+    "color": "red"
   }
 ]
