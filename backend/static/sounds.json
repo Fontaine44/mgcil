@@ -40,7 +40,7 @@
     "color": "blue"
   },
   {
-    "name": "womp wmop (James Charles)",
+    "name": "womp womp womp (James Charles)",
     "sound": "wompwompjc",
     "color": "purple"
   },
@@ -168,5 +168,100 @@
     "name": "Pis Bowser",
     "sound": "pisbowser",
     "color": "red"
+  },
+  {
+    "name": "Normand Marineau",
+    "sound": "normand",
+    "color": "brown"
+  },
+  {
+    "name": "START YOUR ENGINES!",
+    "sound": "startengines",
+    "color": "red"
+  },
+  {
+    "name": "real fast and real left",
+    "sound": "realfast",
+    "color": "purple"
+  },
+  {
+    "name": "1 million beers",
+    "sound": "millionbeers",
+    "color": "orange"
+  },
+  {
+    "name": "It's CORN",
+    "sound": "itscorn",
+    "color": "yellow"
+  },
+  {
+    "name": "Among Us role reveal",
+    "sound": "amongus",
+    "color": "red"
+  },
+  {
+    "name": "GTA San Andreas",
+    "sound": "gtasanandreas",
+    "color": "blue"
+  },
+  {
+    "name": "Jackass intro",
+    "sound": "jackass",
+    "color": "gray"
+  },
+  {
+    "name": "hello I'm under the water",
+    "sound": "underwater",
+    "color": "blue"
+  },
+  {
+    "name": "Grosse bibitte noire",
+    "sound": "grossebibitte",
+    "color": "black"
+  },
+  {
+    "name": "BANNED",
+    "sound": "banned",
+    "color": "red"
+  },
+  {
+    "name": "I live paycheck to paycheck",
+    "sound": "paycheck",
+    "color": "green"
+  },
+  {
+    "name": "They're eating the dogs!",
+    "sound": "eatingdogs",
+    "color": "brown"
+  },
+  {
+    "name": "What are those??",
+    "sound": "whatarethose",
+    "color": "pink"
+  },
+  {
+    "name": "Ketchup song",
+    "sound": "ketchupsong",
+    "color": "red"
+  },
+  {
+    "name": "Let's go gambling",
+    "sound": "gogambling",
+    "color": "yellow"
+  },
+  {
+    "name": "My money dont jiggle jiggle",
+    "sound": "moneyjiggle",
+    "color": "lightgreen"
+  },
+  {
+    "name": "Mr Boombastic",
+    "sound": "mrboombastic",
+    "color": "gray"
+  },
+  {
+    "name": "NO GOD! PLEASE NO!!!",
+    "sound": "nogod",
+    "color": "blue"
   }
 ]
