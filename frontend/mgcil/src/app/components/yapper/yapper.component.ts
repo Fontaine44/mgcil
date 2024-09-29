@@ -14,8 +14,8 @@ import { debounceTime, distinctUntilChanged, of, Subject, switchMap } from 'rxjs
 export class YapperComponent implements OnInit {
   allButtons: any = [];
   currentButtons: any = null;
-  // api: string = 'https://mgcil.onrender.com';
-  api: string = 'http://localhost:5000';
+  api: string = 'https://mgcil.onrender.com';
+  // api: string = 'http://localhost:5000';
   suggestion: string = '';
   searchTerm: string = '';
   searchSubject: Subject<string> = new Subject();
