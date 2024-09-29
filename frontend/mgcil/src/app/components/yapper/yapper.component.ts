@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SoundButtonComponent } from "./sound-button/sound-button.component";
 import { HttpService } from '../../shared/services/http.service';
 import { FormsModule } from '@angular/forms';
-import { debounceTime, distinctUntilChanged, Subject } from 'rxjs';
+import { debounceTime, distinctUntilChanged, of, Subject, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-yapper',
@@ -14,8 +14,8 @@ import { debounceTime, distinctUntilChanged, Subject } from 'rxjs';
 export class YapperComponent implements OnInit {
   allButtons: any = [];
   currentButtons: any = null;
-  api: string = 'https://mgcil.onrender.com';
-  // api: string = 'http://localhost:5000';
+  // api: string = 'https://mgcil.onrender.com';
+  api: string = 'http://localhost:5000';
   suggestion: string = '';
   searchTerm: string = '';
   searchSubject: Subject<string> = new Subject();
@@ -27,7 +27,7 @@ export class YapperComponent implements OnInit {
     this.searchSubject
     .pipe(
       debounceTime(500),
-      distinctUntilChanged()
+      distinctUntilChanged(),
     )
     .subscribe(searchTerm => {
       this.performSearch(searchTerm);
@@ -53,14 +53,15 @@ export class YapperComponent implements OnInit {
   }
 
   onSearchChange(searchTerm: string) {
-    if (searchTerm.length == 0) {
-      this.currentButtons = this.allButtons;
-    } else {
-      this.searchSubject.next(searchTerm);
-    }
+    this.searchSubject.next(searchTerm);
   }
 
   performSearch(searchTerm: string) {
+    if (searchTerm.length == 0) {
+      this.currentButtons = this.allButtons;
+      return;
+    }
+
     this.currentButtons = this.allButtons.filter((button: any) => {
       return button.name.toLowerCase().includes(searchTerm.toLowerCase());
     });
