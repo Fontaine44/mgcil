@@ -1,17 +1,42 @@
 <div class="yapper d-flex flex-column p-2 h-100">
   <h1 class="text-center">yapping board</h1>
 
-  @if (buttons) {
-    <div class="yapper__button-grid p-1">
-      @for (button of buttons; track button.name; let index = $index) {
-        <app-sound-button
-          [name]="button.name"
-          [sound]="button.sound"
-          [color]="button.color"
-          (buttonClicked)="playSound(index)"
-        ></app-sound-button>
-      }
+  @if (currentButtons === null) {
+    <div class="d-flex justify-content-center align-items-center flex-grow-1">
+      <span class="me-2">Loading sounds womp womp...</span>
+      <div class="spinner-grow" role="status">
+      </div>
     </div>
+  }
+  @else {
+    <form class="d-flex align-items-center my-3 pb-2" (ngSubmit)="onSubmit()">
+      <label for="search" class="form-label m-0">Search:</label>
+      <input
+        type="text"
+        class="form-control w-25 mx-2"
+        id="search"
+        name="search"
+        maxlength="30"
+        [(ngModel)]="searchTerm"
+        (ngModelChange)="onSearchChange($event)"
+      >
+    </form>
+
+    @if (currentButtons.length > 0) {
+      <div class="yapper__button-grid p-1">
+        @for (button of currentButtons; track button.name; let index = $index) {
+          <app-sound-button
+            [name]="button.name"
+            [sound]="button.sound"
+            [color]="button.color"
+            (buttonClicked)="playSound(index)"
+          ></app-sound-button>
+        }
+      </div>
+    }
+    @else {
+      <span class="text-center my-3">No sounds found womp womp 😔</span>
+    }
 
     <form class="d-flex justify-content-center align-items-center my-3 pb-2" (ngSubmit)="onSubmit()">
       <label for="suggestion" class="form-label m-0">Suggestion?</label>
@@ -25,12 +50,5 @@
       >
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-  } 
-  @else {
-    <div class="d-flex justify-content-center align-items-center flex-grow-1">
-      <span class="me-2">Loading sounds womp womp...</span>
-      <div class="spinner-grow" role="status">
-      </div>
-    </div>
   }
 </div>
