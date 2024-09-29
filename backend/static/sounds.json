@@ -263,5 +263,70 @@
     "name": "NO GOD! PLEASE NO!!!",
     "sound": "nogod",
     "color": "blue"
+  },
+  {
+    "name": "✂️",
+    "sound": "coupe",
+    "color": "red"
+  },
+  {
+    "name": "Dumbledore asked clamly",
+    "sound": "dumbledore",
+    "color": "orange"
+  },
+  {
+    "name": "What's up brother",
+    "sound": "whatsupbro",
+    "color": "red"
+  },
+  {
+    "name": "Le ptit bum",
+    "sound": "leptitbum",
+    "color": "black"
+  },
+  {
+    "name": "Hog rideeerrr",
+    "sound": "hogrider",
+    "color": "brown"
+  },
+  {
+    "name": "and his name is...",
+    "sound": "johncena",
+    "color": "lightgreen"
+  },
+  {
+    "name": "John Cena bing chilling",
+    "sound": "bingchilling",
+    "color": "red"
+  },
+  {
+    "name": "Je fais une yellow ce soir",
+    "sound": "brice1",
+    "color": "yellow"
+  },
+  {
+    "name": "Brice au café",
+    "sound": "brice2",
+    "color": "yellow"
+  },
+  {
+    "name": "SYMPHONY",
+    "sound": "symphony",
+    "color": "pink"
+  },
+  {
+    "name": "James May - cheese",
+    "sound": "cheese",
+    "color": "orange"
+  },
+  {
+    "name": "Another one!",
+    "sound": "anotherone",
+    "color": "green"
+  },
+  {
+    "name": "Fart Moan",
+    "sound": "fartmoan",
+    "color": "brown"
   }
 ]
