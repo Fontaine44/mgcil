@@ -45,7 +45,6 @@ export class TranslatorComponent implements OnInit {
     this.speech.cancel();
     this.speech.setLanguage(this.selectedLanguage);
     this.speech.setVoice(this.selectedLanguage == "en-US" ? this.voices[0] : this.voices[1]);
-    this.speech.setRate(this.selectedLanguage == "en-US" ? 1 : 0.8);
 
     if (this.inputNumber) {
       this.translatedNumber = this.numberToWords(this.inputNumber);
