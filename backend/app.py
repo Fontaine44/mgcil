@@ -1,5 +1,7 @@
 import os
 import requests
+import threading
+import pandas as pd
 from flask import Flask, request, send_file
 from flask_cors import CORS
 from dotenv import load_dotenv
@@ -18,14 +20,30 @@ def home():
 def healthy():
     return '', 200
 
+def log_sound(sound):
+    df = pd.read_csv(BUCKET_URL+'analytics.csv')
+
+    if sound in df['Sound'].values:
+        df.loc[df['Sound'] == sound, 'Count'] += 1
+    else:
+        df.loc[len(df.index)] = [sound, 1]
+
+    requests.put(BUCKET_URL+'analytics.csv', data=df.to_csv(index=False))
+
 @app.route('/sounds/<name>', methods=['GET'])
 def get_sound(name):
+    threading.Thread(target=log_sound, args=[name]).start()
     mp3_file_path = f'static/sounds/{name}.mp3'
     return send_file(mp3_file_path, mimetype='audio/mpeg')
 
 @app.route('/sounds', methods=['GET'])
 def sounds():
     return send_file('static/sounds.json', mimetype='application/json')
+
+@app.route('/analytics', methods=['GET'])
+def get_analytics():
+    df = pd.read_csv(BUCKET_URL+'analytics.csv')
+    return df.to_html(index=False), 200
 
 @app.route('/suggestions', methods=['GET'])
 def get_suggestions():
