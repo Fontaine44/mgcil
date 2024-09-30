@@ -1,0 +1,67 @@
+<div class="p-2">
+  <h1 class="text-center mb-3">Wah translator</h1>
+
+  <div class="row mx-0 row-gap-3">
+    <div class="col-12 col-sm-6">
+      <form class="d-flex flex-column gap-1" #numberForm="ngForm" (ngSubmit)="onSubmit()">
+        <label for="translate" class="form-label m-0">Enter number to translate:</label>
+        <input
+          type="number"
+          class="form-control"
+          id="translate"
+          name="translate"
+          max="999999999999"
+          min="0"
+          required
+          [(ngModel)]="inputNumber"
+          required
+          #translate="ngModel"
+        >
+
+        <div *ngIf="translate.invalid && translate.touched" class="text-danger">
+          Please enter a number between 0 and 999999999999.
+        </div>
+
+
+        <div class="input-group flex-column my-3 gap-2">
+          <label for="language" class="form-label m-0">Language:</label>
+          <div class="form-check ms-0">
+            <input 
+              class="form-check-input" 
+              type="radio" 
+              name="language" 
+              id="en-US" 
+              value="en-US" 
+              [(ngModel)]="selectedLanguage"
+              checked>
+            <label class="form-check-label" for="en-US">
+              English
+            </label>
+          </div>
+          <div class="form-check ms-0">
+            <input 
+              class="form-check-input" 
+              type="radio" 
+              name="language" 
+              id="fr-CA" 
+              value="fr-CA" 
+              [(ngModel)]="selectedLanguage">
+            <label class="form-check-label" for="fr-CA">
+              Français
+            </label>
+          </div>
+        </div>
+    
+        <button type="submit" class="btn btn-primary" [disabled]="numberForm.invalid">Translate</button>
+
+        <span class="fst-italic">PRO TIP: turn ON your sound</span>
+      </form>
+    </div>
+  
+    <div class="col-6 bg-light flex-grow-1 p-2 min-h-50">
+      <div class="fw-bold text-center">Translated number:</div>
+      <div>{{ translatedNumber }}</div>
+    </div>
+  </div>
+  <br>
+</div>

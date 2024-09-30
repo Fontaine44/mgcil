@@ -1,0 +1,13 @@
+$primary: #ED1B2F;
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+$mynewcolor: #FFF;
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited,
+.btn-primary:focus {
+    color: #FFF;
+}

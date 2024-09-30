@@ -12,6 +12,10 @@ export const routes: Routes = [
     loadComponent: () => import('./components/yapper/yapper.component').then(m => m.YapperComponent)
   },
   {
+    path: 'translator',
+    loadComponent: () => import('./components/translator/translator.component').then(m => m.TranslatorComponent)
+  },
+  {
     path: '**',
     redirectTo: '',
   }

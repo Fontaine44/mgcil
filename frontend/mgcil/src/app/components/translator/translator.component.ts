@@ -1,0 +1,78 @@
+import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+// @ts-ignore
+import Speech from 'speak-tts';
+// @ts-ignore
+import { toWords } from 'number-to-words';
+// @ts-ignore
+import { NumberToLetter } from '@mandarvl/convertir-nombre-lettre';
+
+@Component({
+  selector: 'app-translator',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
+  templateUrl: './translator.component.html',
+  styleUrl: './translator.component.scss'
+})
+export class TranslatorComponent implements OnInit {
+  inputNumber?: number;
+  translatedNumber?: string;
+  selectedLanguage: string = "en-US";
+  speech: Speech = null;
+  voices: string[] = ["Google UK English Male", "Google français"];
+
+  ngOnInit() {
+    this.speech = new Speech();
+    if(this.speech.hasBrowserSupport()) {
+      this.speech.init({
+        'volume': 1,
+        'lang': 'en-US',
+        'rate': 1,
+        'pitch': 1,
+        'voice':'Google UK English Male',
+        'splitSentences': true,
+        }).catch((e: any) => {
+            console.error("An error occured while initializing : ", e)
+        })
+    } else {
+      this.speech = null;
+    }
+  }
+
+  onSubmit() {
+    this.translatedNumber = "";
+    this.speech.cancel();
+    this.speech.setLanguage(this.selectedLanguage);
+    this.speech.setVoice(this.selectedLanguage == "en-US" ? this.voices[0] : this.voices[1]);
+    this.speech.setRate(this.selectedLanguage == "en-US" ? 1 : 0.8);
+
+    if (this.inputNumber) {
+      this.translatedNumber = this.numberToWords(this.inputNumber);
+
+      this.speech.speak({
+        text: this.translatedNumber,
+      }).catch((e: any) => {
+          console.error("An error occurred :", e) 
+      })
+    }
+  }
+
+  numberToWords(number: number) {
+    if (this.selectedLanguage == "en-US") {
+      // English
+      var words = toWords(number);
+      words = words.replace(/fifty/g, "wahty");
+      words = words.replace(/five/g, "wah");
+      words = words.replace(/seven/g, "wahwah");
+    } else {
+      // French
+      var words = NumberToLetter(number);
+      words = words.replace(/cinquante/g, "wahquante");
+      words = words.replace(/cinq/g, "wah");
+      words = words.replace(/sept/g, "wahwah");
+    }
+
+    return words;
+  }
+}
