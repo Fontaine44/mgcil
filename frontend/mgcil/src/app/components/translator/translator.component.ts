@@ -18,63 +18,64 @@ import { NumberToLetter } from '@mandarvl/convertir-nombre-lettre';
 export class TranslatorComponent implements OnInit {
   inputNumber?: number;
   translatedNumber?: string;
-  selectedLanguage: string = "en-US";
+  selectedLanguage: string = "en-UK";
   speech: Speech = null;
   voices: string[] = [];
 
   ngOnInit() {
-    this.speech = new Speech();
-    if(this.speech.hasBrowserSupport()) {
-      this.speech.init({
-        'volume': 1,
-        'lang': 'en-US',
-        'rate': 1,
-        'pitch': 1,
-        'splitSentences': true,
-        'listeners': {
-          'onvoiceschanged': (voices: any) => {
-            this.setVoices(voices);
-          }
-        }
-        }).then((data: any) => {
-          this.setVoices(data.voices);
-          this.speech.setVoice(this.selectedLanguage == "en-US" ? this.voices[0] : this.voices[1]);
-        }).catch((e: any) => {
-            console.error("An error occured while initializing : ", e)
-        });
-    } else {
-      this.speech = null;
-    }
+    // this.speech = new Speech();
+    // if(this.speech.hasBrowserSupport()) {
+    //   this.speech.init({
+    //     'volume': 1,
+    //     'lang': 'en-UK',
+    //     'rate': 1,
+    //     'pitch': 1,
+    //     'splitSentences': true,
+    //     'listeners': {
+    //       'onvoiceschanged': (voices: any) => {
+    //         this.setVoices(voices);
+    //       }
+    //     }
+    //     }).then((data: any) => {
+    //       this.setVoices(data.voices);
+    //       this.speech.setVoice(this.selectedLanguage == "en-UK" ? this.voices[0] : this.voices[1]);
+    //     }).catch((e: any) => {
+    //         console.error("An error occured while initializing : ", e)
+    //     });
+    // } else {
+    //   this.speech = null;
+    // }
   }
 
   onSubmit() {
     this.translatedNumber = "";
-    this.speech.cancel();
-    this.speech.setLanguage(this.selectedLanguage);
-    this.speech.setVoice(this.selectedLanguage == "en-US" ? this.voices[0] : this.voices[1]);
+    // this.speech.cancel();
+    // this.speech.setLanguage(this.selectedLanguage);
+    // this.speech.setVoice(this.selectedLanguage == "en-UK" ? this.voices[0] : this.voices[1]);
 
     if (this.inputNumber) {
       this.translatedNumber = this.numberToWords(this.inputNumber);
 
-      this.speech.speak({
-        text: this.translatedNumber,
-      }).catch((e: any) => {
-          console.error("An error occurred :", e) 
-      })
+      // this.speech.speak({
+      //   text: this.translatedNumber,
+      // }).catch((e: any) => {
+      //     console.error("An error occurred :", e) 
+      // })
     }
   }
   
   setVoices(allVoices: any[]) {
-    const enUSVoice = allVoices.find(voice => voice.lang === 'en-US');
+    const enUKVoice = allVoices.find(voice => voice.lang === 'en-UK');
     const frCAVoice = allVoices.find(voice => voice.lang === 'fr-FR');
-    this.voices = [enUSVoice.name, frCAVoice.name];
+    this.voices = [enUKVoice.name, frCAVoice.name];
   }
 
   numberToWords(number: number) {
-    if (this.selectedLanguage == "en-US") {
+    if (this.selectedLanguage == "en-UK") {
       // English
       var words = toWords(number);
       words = words.replace(/fifty/g, "wahty");
+      words = words.replace(/fifteen/g, "wahteen");
       words = words.replace(/five/g, "wah");
       words = words.replace(/seven/g, "wahwah");
     } else {
@@ -82,6 +83,7 @@ export class TranslatorComponent implements OnInit {
       var words = NumberToLetter(number);
       words = words.replace(/cinquante/g, "wahquante");
       words = words.replace(/cinq/g, "wah");
+      words = words.replace(/quinze/g, "winze");
       words = words.replace(/sept/g, "wahwah");
     }
 
