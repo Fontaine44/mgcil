@@ -20,7 +20,7 @@ export class TranslatorComponent implements OnInit {
   translatedNumber?: string;
   selectedLanguage: string = "en-US";
   speech: Speech = null;
-  voices: string[] = ["Google UK English Male", "Google français"];
+  voices: string[] = [];
 
   ngOnInit() {
     this.speech = new Speech();
@@ -30,11 +30,18 @@ export class TranslatorComponent implements OnInit {
         'lang': 'en-US',
         'rate': 1,
         'pitch': 1,
-        'voice':'Google UK English Male',
         'splitSentences': true,
+        'listeners': {
+          'onvoiceschanged': (voices: any) => {
+            this.setVoices(voices);
+          }
+        }
+        }).then((data: any) => {
+          this.setVoices(data.voices);
+          this.speech.setVoice(this.selectedLanguage == "en-US" ? this.voices[0] : this.voices[1]);
         }).catch((e: any) => {
             console.error("An error occured while initializing : ", e)
-        })
+        });
     } else {
       this.speech = null;
     }
@@ -55,6 +62,12 @@ export class TranslatorComponent implements OnInit {
           console.error("An error occurred :", e) 
       })
     }
+  }
+  
+  setVoices(allVoices: any[]) {
+    const enUSVoice = allVoices.find(voice => voice.lang === 'en-US');
+    const frCAVoice = allVoices.find(voice => voice.lang === 'fr-FR');
+    this.voices = [enUSVoice.name, frCAVoice.name];
   }
 
   numberToWords(number: number) {
