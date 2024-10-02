@@ -10,6 +10,11 @@
 .very-important-image {
   text-align: center;
   font-size: 2000%;
+  line-height: normal;
+
+  img {
+    max-width: 100%
+  }
 }
 
 .explanation {
@@ -17,10 +22,27 @@
   font-size: 200%;
   font-weight: 60;
   font-style: italic;
+  line-height: normal;
   color: #000;
   font-family: "Times New Roman";
 
   a {
     color: rgb(0, 0, 238);
   }
+}
+
+
+@media (max-width: 768px) {
+  .very-important-message {
+    font-size: 1000%;
+  }
+
+  .explanation {
+    font-size: 125%;
+  }
+
+  .very-important-image {
+    text-align: center;
+    font-size: 800%;
+  } 
 }
