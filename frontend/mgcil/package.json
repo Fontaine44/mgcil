@@ -20,9 +20,10 @@
     "@angular/router": "^18.2.0",
     "@mandarvl/convertir-nombre-lettre": "^1.0.5",
     "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
+    "google-translate-tts": "^0.4.0-dev",
     "number-to-words": "^1.2.4",
     "rxjs": "~7.8.0",
-    "speak-tts": "^2.0.8",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.10"
   },

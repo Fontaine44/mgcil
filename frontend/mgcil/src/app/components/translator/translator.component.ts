@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-// @ts-ignore
-import Speech from 'speak-tts';
 // @ts-ignore
 import { toWords } from 'number-to-words';
 // @ts-ignore
 import { NumberToLetter } from '@mandarvl/convertir-nombre-lettre';
+import { HttpService } from '../../shared/services/http.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-translator',
@@ -15,63 +15,28 @@ import { NumberToLetter } from '@mandarvl/convertir-nombre-lettre';
   templateUrl: './translator.component.html',
   styleUrl: './translator.component.scss'
 })
-export class TranslatorComponent implements OnInit {
+export class TranslatorComponent {
   inputNumber?: number;
   translatedNumber?: string;
-  selectedLanguage: string = "en-UK";
-  speech: Speech = null;
-  voices: string[] = [];
+  selectedLanguage: string = "en-GB";
+  voices: any[] = [
+    { languageCode: "en-GB", name: "en-GB-Standard-D" },
+    { languageCode: "fr-CA", name: "fr-CA-Standard-A" }
+  ];
+  isSpeechDisabled = false;
 
-  ngOnInit() {
-    // this.speech = new Speech();
-    // if(this.speech.hasBrowserSupport()) {
-    //   this.speech.init({
-    //     'volume': 1,
-    //     'lang': 'en-UK',
-    //     'rate': 1,
-    //     'pitch': 1,
-    //     'splitSentences': true,
-    //     'listeners': {
-    //       'onvoiceschanged': (voices: any) => {
-    //         this.setVoices(voices);
-    //       }
-    //     }
-    //     }).then((data: any) => {
-    //       this.setVoices(data.voices);
-    //       this.speech.setVoice(this.selectedLanguage == "en-UK" ? this.voices[0] : this.voices[1]);
-    //     }).catch((e: any) => {
-    //         console.error("An error occured while initializing : ", e)
-    //     });
-    // } else {
-    //   this.speech = null;
-    // }
-  }
+  constructor(private httpService: HttpService) {}
 
   onSubmit() {
     this.translatedNumber = "";
-    // this.speech.cancel();
-    // this.speech.setLanguage(this.selectedLanguage);
-    // this.speech.setVoice(this.selectedLanguage == "en-UK" ? this.voices[0] : this.voices[1]);
 
     if (this.inputNumber) {
       this.translatedNumber = this.numberToWords(this.inputNumber);
-
-      // this.speech.speak({
-      //   text: this.translatedNumber,
-      // }).catch((e: any) => {
-      //     console.error("An error occurred :", e) 
-      // })
     }
-  }
-  
-  setVoices(allVoices: any[]) {
-    const enUKVoice = allVoices.find(voice => voice.lang === 'en-UK');
-    const frCAVoice = allVoices.find(voice => voice.lang === 'fr-FR');
-    this.voices = [enUKVoice.name, frCAVoice.name];
   }
 
   numberToWords(number: number) {
-    if (this.selectedLanguage == "en-UK") {
+    if (this.selectedLanguage == "en-GB") {
       // English
       var words = toWords(number);
       words = words.replace(/fifty/g, "wahty");
@@ -88,5 +53,42 @@ export class TranslatorComponent implements OnInit {
     }
 
     return words;
+  }
+
+  onSpeech() {
+    this.httpService.post(`https://texttospeech.googleapis.com/v1beta1/text:synthesize?key=${environment.googleApiKey}`,
+      {
+        "input": {
+          "text": this.translatedNumber
+          
+        },
+        "voice": this.voices.find(voice => voice.languageCode == this.selectedLanguage),
+        "audioConfig": {
+          "audioEncoding": "MP3"
+          
+        }
+      }
+    ).subscribe((response) => {
+      const audioBlob = this.base64ToBlob(response.audioContent, 'audio/mp3');
+      const audioUrl = URL.createObjectURL(audioBlob);
+      const audio = new Audio(audioUrl);
+      audio.play();
+    });
+
+    this.isSpeechDisabled = true;
+
+    setTimeout(() => {
+      this.isSpeechDisabled = false;
+    }, 10000);
+  }
+
+  base64ToBlob(base64: string, contentType: string): Blob {
+    const byteCharacters = atob(base64);
+    const byteNumbers = new Array(byteCharacters.length);
+    for (let i = 0; i < byteCharacters.length; i++) {
+      byteNumbers[i] = byteCharacters.charCodeAt(i);
+    }
+    const byteArray = new Uint8Array(byteNumbers);
+    return new Blob([byteArray], { type: contentType });
   }
 }

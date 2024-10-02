@@ -3,6 +3,7 @@ import { SoundButtonComponent } from "./sound-button/sound-button.component";
 import { HttpService } from '../../shared/services/http.service';
 import { FormsModule } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, of, Subject, switchMap } from 'rxjs';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-yapper',
@@ -14,8 +15,7 @@ import { debounceTime, distinctUntilChanged, of, Subject, switchMap } from 'rxjs
 export class YapperComponent implements OnInit {
   allButtons: any = [];
   currentButtons: any = null;
-  api: string = 'https://mgcil.onrender.com';
-  // api: string = 'http://localhost:5000';
+  apiURL: string = environment.apiUrl;
   suggestion: string = '';
   searchTerm: string = '';
   searchSubject: Subject<string> = new Subject();
@@ -35,7 +35,7 @@ export class YapperComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.httpService.get(`${this.api}/sounds`)
+    this.httpService.get(`${this.apiURL}/sounds`)
       .subscribe((response) => {
         this.allButtons = response;
         this.currentButtons = this.allButtons;
@@ -48,7 +48,7 @@ export class YapperComponent implements OnInit {
     this.currentSound?.pause();
 
     // Start new sound
-    this.currentSound = new Audio(`${this.api}/sounds/${this.currentButtons[index].sound}`);
+    this.currentSound = new Audio(`${this.apiURL}/sounds/${this.currentButtons[index].sound}`);
     this.currentSound.play();
   }
 
@@ -75,6 +75,6 @@ export class YapperComponent implements OnInit {
   }
 
   sendSuggestion(suggestion: string) {
-    this.httpService.post(`${this.api}/suggestions`, { suggestion }).subscribe();
+    this.httpService.post(`${this.apiURL}/suggestions`, { suggestion }).subscribe();
   }
 }

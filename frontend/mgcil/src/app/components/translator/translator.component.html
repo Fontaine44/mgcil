@@ -1,5 +1,5 @@
 <div class="p-2">
-  <h1 class="text-center mb-3">Wah translator</h1>
+  <h1 class="text-center mb-3">wah translator</h1>
 
   <div class="row mx-0 row-gap-3">
     <div class="col-12 col-sm-6">
@@ -30,11 +30,11 @@
               class="form-check-input" 
               type="radio" 
               name="language" 
-              id="en-UK" 
-              value="en-UK" 
+              id="en-GB" 
+              value="en-GB" 
               [(ngModel)]="selectedLanguage"
               checked>
-            <label class="form-check-label" for="en-UK">
+            <label class="form-check-label" for="en-GB">
               English
             </label>
           </div>
@@ -53,15 +53,35 @@
         </div>
     
         <button type="submit" class="btn btn-primary" [disabled]="numberForm.invalid">Translate</button>
-
-        <!-- <span class="fst-italic">PRO TIP: turn ON your sound</span> -->
-        <span class="fst-italic">Text-to-speech coming soon...</span>
       </form>
     </div>
   
-    <div class="col-6 bg-light flex-grow-1 p-2 min-h-50">
+    <div class="col-6 d-flex flex-column bg-light flex-grow-1 p-2 min-h-25">
       <div class="fw-bold text-center">Translated number:</div>
+
       <div>{{ translatedNumber }}</div>
+
+      <button
+        *ngIf="translatedNumber"
+        type="button"
+        class="btn btn-light mt-auto"
+        (click)="onSpeech()"
+        [disabled]="isSpeechDisabled"	
+      >
+        @if (isSpeechDisabled) {
+          <span>
+            <i class="bi bi-hourglass-split"></i>
+            &nbsp;Cooldown womp womp&nbsp;
+            <i class="bi bi-hourglass-split"></i>
+          </span>
+        } @else {
+          <span>
+            <i class="bi bi-megaphone-fill"></i>
+            &nbsp;HEAR IT!&nbsp;
+            <i class="bi bi-megaphone-fill"></i>
+          </span>
+        }
+      </button>
     </div>
   </div>
   <br>
