@@ -56,17 +56,12 @@ export class TranslatorComponent {
   }
 
   onSpeech() {
-    this.httpService.post(`https://texttospeech.googleapis.com/v1beta1/text:synthesize?key=${environment.googleApiKey}`,
+    const selectedVoice = this.voices.find(voice => voice.languageCode == this.selectedLanguage);
+    this.httpService.post(`${environment.apiUrl}/tts`, 
       {
-        "input": {
-          "text": this.translatedNumber
-          
-        },
-        "voice": this.voices.find(voice => voice.languageCode == this.selectedLanguage),
-        "audioConfig": {
-          "audioEncoding": "MP3"
-          
-        }
+        languageCode: selectedVoice.languageCode,
+        name: selectedVoice.name,
+        text: this.translatedNumber
       }
     ).subscribe((response) => {
       const audioBlob = this.base64ToBlob(response.audioContent, 'audio/mp3');

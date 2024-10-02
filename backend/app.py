@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 BUCKET_URL = os.getenv('BUCKET_URL')
+GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
 
 app = Flask(__name__)
 CORS(app)
@@ -64,6 +65,31 @@ def post_suggestions():
     response = requests.put(BUCKET_URL+'suggestions.txt', data=suggestions)
 
     return {"status": "Received"}, 200
+
+@app.route('/tts', methods=['POST'])
+def tts():
+    data = request.get_json()
+    text = data.get('text')
+    language_code = data.get('languageCode')
+    name = data.get('name')
+
+    body = {
+        "input": {
+          "text": text
+          
+        },
+        "voice": {
+            "languageCode": language_code,
+            "name": name
+        },
+        "audioConfig": {
+          "audioEncoding": "MP3"
+        }
+      }
+
+    response = requests.post(f"https://texttospeech.googleapis.com/v1beta1/text:synthesize?key={GOOGLE_API_KEY}", json=body)
+
+    return response.json()
 
 if __name__ == '__main__':
     app.run(debug=True)
