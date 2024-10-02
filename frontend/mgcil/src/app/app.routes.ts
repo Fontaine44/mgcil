@@ -20,6 +20,10 @@ export const routes: Routes = [
     loadComponent: () => import('./components/die/die.component').then(m => m.DieComponent)
   },
   {
+    path: 'lapoly.ca',
+    loadComponent: () => import('./components/lapoly/lapoly.component').then(m => m.LapolyComponent)
+  },
+  {
     path: '**',
     redirectTo: '',
   }
