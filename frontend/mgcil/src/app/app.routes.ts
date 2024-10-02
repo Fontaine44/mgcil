@@ -16,6 +16,10 @@ export const routes: Routes = [
     loadComponent: () => import('./components/translator/translator.component').then(m => m.TranslatorComponent)
   },
   {
+    path: 'die',
+    loadComponent: () => import('./components/die/die.component').then(m => m.DieComponent)
+  },
+  {
     path: '**',
     redirectTo: '',
   }
