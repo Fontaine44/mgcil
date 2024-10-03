@@ -24,6 +24,10 @@ export const routes: Routes = [
     loadComponent: () => import('./components/lapoly/lapoly.component').then(m => m.LapolyComponent)
   },
   {
+    path: 'bolt-tracker',
+    loadComponent: () => import('./components/bolt/bolt.component').then(m => m.BoltComponent)
+  },
+  {
     path: '**',
     redirectTo: '',
   }

@@ -1,0 +1,11 @@
+.blinky {
+  animation: blinker 1s linear infinite;
+  color: red;
+  font-weight: bold;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
