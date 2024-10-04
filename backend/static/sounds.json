@@ -10,6 +10,21 @@
     "color": "blue"
   },
   {
+    "name": "LA poly",
+    "sound": "lapoly",
+    "color": "orangered"
+  },
+  {
+    "name": "T'as changé 1",
+    "sound": "tachange1",
+    "color": "darkviolet"
+  },
+  {
+    "name": "T'as changé 2",
+    "sound": "tachange2",
+    "color": "darkviolet"
+  },
+  {
     "name": "What the helll",
     "sound": "whatthehell",
     "color": "green"
@@ -83,11 +98,6 @@
     "name": "What's heavier",
     "sound": "whatsheavier",
     "color": "blue"
-  },
-  {
-    "name": "LA poly",
-    "sound": "lapoly",
-    "color": "red"
   },
   {
     "name": "Pakistan interview 1",
@@ -250,6 +260,11 @@
     "color": "yellow"
   },
   {
+    "name": "Let's go gambling (oh dang it)",
+    "sound": "gogambling2",
+    "color": "yellow"
+  },
+  {
     "name": "My money dont jiggle jiggle",
     "sound": "moneyjiggle",
     "color": "lightgreen"
@@ -328,5 +343,110 @@
     "name": "Fart Moan",
     "sound": "fartmoan",
     "color": "brown"
+  },
+  {
+    "name": "Why are you running?",
+    "sound": "whyrunning",
+    "color": "darkkhaki"
+  },
+  {
+    "name": "Deez Nuts",
+    "sound": "deeznuts",
+    "color": "lightsalmon"
+  },
+  {
+    "name": "Shut up grandma",
+    "sound": "shutupgrandma",
+    "color": "slategrey"
+  },
+  {
+    "name": "WTF Kyle",
+    "sound": "wtfkyle",
+    "color": "red"
+  },
+  {
+    "name": "Markiplier smash",
+    "sound": "markipliersmash",
+    "color": "mediumblue"
+  },
+  {
+    "name": "You ruined everything...",
+    "sound": "youruined",
+    "color": "purple"
+  },
+  {
+    "name": "Monster Inc. theme bass",
+    "sound": "monsterinc",
+    "color": "lime"
+  },
+  {
+    "name": "Okay I like it Picasso",
+    "sound": "picasso",
+    "color": "maroon"
+  },
+  {
+    "name": "gyyaaaaat!!!",
+    "sound": "gyyaaaaat",
+    "color": "navajowhite"
+  },
+  {
+    "name": "9+10",
+    "sound": "9+10",
+    "color": "slateblue"
+  },
+  {
+    "name": "huh",
+    "sound": "huh",
+    "color": "orange"
+  },
+  {
+    "name": "Tequila Heineken",
+    "sound": "tequilaheineken",
+    "color": "olive"
+  },
+  {
+    "name": "COD Montage",
+    "sound": "codmontage",
+    "color": "black"
+  },
+  {
+    "name": "Vidéo Drôle D'Un Gars Ivre Saoul 1",
+    "sound": "helice1",
+    "color": "chartreuse"
+  },
+  {
+    "name": "Vidéo Drôle D'Un Gars Ivre Saoul 2",
+    "sound": "helice2",
+    "color": "chartreuse"
+  },
+  {
+    "name": "We're Costco guys",
+    "sound": "costco1",
+    "color": "darkred"
+  },
+  {
+    "name": "Costco guys 1",
+    "sound": "costco2",
+    "color": "darkred"
+  },
+  {
+    "name": "Boom Big Justice",
+    "sound": "costco3",
+    "color": "darkred"
+  },
+  {
+    "name": "Boom A.J.",
+    "sound": "costco4",
+    "color": "darkred"
+  },
+  {
+    "name": "Do not redeem the card",
+    "sound": "donotredeem",
+    "color": "indianred"
+  },
+  {
+    "name": "J'ai l'doua",
+    "sound": "jaidloua",
+    "color": "yellow"
   }
 ]
