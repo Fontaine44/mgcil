@@ -28,6 +28,10 @@ export const routes: Routes = [
     loadComponent: () => import('./components/bolt/bolt.component').then(m => m.BoltComponent)
   },
   {
+    path: 'igor',
+    loadComponent: () => import('./components/igor/igor.component').then(m => m.IgorComponent)
+  },
+  {
     path: '**',
     redirectTo: '',
   }
