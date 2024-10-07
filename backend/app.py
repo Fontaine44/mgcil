@@ -31,10 +31,10 @@ def log_sound(sound):
 
     requests.put(BUCKET_URL+'analytics.csv', data=df.to_csv(index=False))
 
-@app.route('/sounds/<name>', methods=['GET'])
-def get_sound(name):
-    threading.Thread(target=log_sound, args=[name]).start()
-    mp3_file_path = f'static/sounds/{name}.mp3'
+@app.route('/sounds/<sound>', methods=['GET'])
+def get_sound(sound):
+    threading.Thread(target=log_sound, args=[sound]).start()
+    mp3_file_path = f'static/sounds/{sound}.mp3'
     return send_file(mp3_file_path, mimetype='audio/mpeg')
 
 @app.route('/sounds', methods=['GET'])
@@ -45,6 +45,11 @@ def sounds():
 def get_analytics():
     df = pd.read_csv(BUCKET_URL+'analytics.csv')
     return df.to_html(index=False), 200
+
+@app.route('/analytics/<sound>', methods=['POST'])
+def add_analytics(sound):
+    threading.Thread(target=log_sound, args=[sound]).start()
+    return "", 200
 
 @app.route('/suggestions', methods=['GET'])
 def get_suggestions():
@@ -71,7 +76,7 @@ def tts():
     data = request.get_json()
     text = data.get('text')
     language_code = data.get('languageCode')
-    name = data.get('name')
+    sound = data.get('sound')
 
     body = {
         "input": {
@@ -80,7 +85,7 @@ def tts():
         },
         "voice": {
             "languageCode": language_code,
-            "name": name
+            "sound": sound
         },
         "audioConfig": {
           "audioEncoding": "MP3"

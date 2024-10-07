@@ -48,7 +48,24 @@ export class YapperComponent implements OnInit {
     this.currentSound?.pause();
 
     // Start new sound
-    this.currentSound = new Audio(`${this.apiURL}/sounds/${this.currentButtons[index].sound}`);
+
+
+    if (environment.production) {
+      // New way
+      const url = `https://audio.jukehost.co.uk/${this.currentButtons[index].endpoint}`;
+      this.currentSound = new Audio(url);
+
+      this.httpService.post(`${this.apiURL}/analytics/${this.currentButtons[index].sound}`, {}).subscribe();
+    } else {
+      // Old way
+      // this.currentSound = new Audio(`${this.apiURL}/sounds/${this.currentButtons[index].sound}`);
+
+      const url = `https://audio.jukehost.co.uk/${this.currentButtons[index].endpoint}`;
+      this.currentSound = new Audio(url);
+
+      this.httpService.post(`${this.apiURL}/analytics/${this.currentButtons[index].sound}`, {}).subscribe();
+    }
+
     this.currentSound.play();
   }
 
