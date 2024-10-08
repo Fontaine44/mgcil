@@ -6,7 +6,7 @@ from flask import Flask, request, send_file
 from flask_cors import CORS
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv(override=True)
 BUCKET_URL = os.getenv('BUCKET_URL')
 GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
 
@@ -76,7 +76,7 @@ def tts():
     data = request.get_json()
     text = data.get('text')
     language_code = data.get('languageCode')
-    sound = data.get('sound')
+    name = data.get('name')
 
     body = {
         "input": {
@@ -85,12 +85,14 @@ def tts():
         },
         "voice": {
             "languageCode": language_code,
-            "sound": sound
+            "name": name
         },
         "audioConfig": {
           "audioEncoding": "MP3"
         }
       }
+    
+    print(body)
 
     response = requests.post(f"https://texttospeech.googleapis.com/v1beta1/text:synthesize?key={GOOGLE_API_KEY}", json=body)
 

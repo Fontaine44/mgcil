@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpService } from '../../shared/services/http.service';
+import { environment } from '../../../environments/environment';
+import { Buffer } from 'buffer';
 // @ts-ignore
 import { toWords } from 'number-to-words';
 // @ts-ignore
 import { NumberToLetter } from '@mandarvl/convertir-nombre-lettre';
-import { HttpService } from '../../shared/services/http.service';
-import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-translator',
@@ -78,12 +79,7 @@ export class TranslatorComponent {
   }
 
   base64ToBlob(base64: string, contentType: string): Blob {
-    const byteCharacters = atob(base64);
-    const byteNumbers = new Array(byteCharacters.length);
-    for (let i = 0; i < byteCharacters.length; i++) {
-      byteNumbers[i] = byteCharacters.charCodeAt(i);
-    }
-    const byteArray = new Uint8Array(byteNumbers);
+    const byteArray = Uint8Array.from(Buffer.from(base64, 'base64'));
     return new Blob([byteArray], { type: contentType });
   }
 }
