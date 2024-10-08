@@ -91,12 +91,11 @@ def tts():
           "audioEncoding": "MP3"
         }
       }
-    
-    print(body)
 
     response = requests.post(f"https://texttospeech.googleapis.com/v1beta1/text:synthesize?key={GOOGLE_API_KEY}", json=body)
 
-    return response.json()
+    return response.json(), response.status_code
+
 
 if __name__ == '__main__':
     app.run(debug=True)
