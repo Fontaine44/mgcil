@@ -9,3 +9,12 @@
     opacity: 0;
   }
 }
+
+#canvas-for-googlemap img.text-marker {
+  max-width: none !important;
+  background: none !important;
+}
+
+img {
+  max-width: none
+}
