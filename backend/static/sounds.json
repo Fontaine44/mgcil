@@ -30,6 +30,12 @@
     "endpoint": "fjooeWXnfzMLtOKriOd0UXM5KMhvoQZY"
   },
   {
+    "name": "KSI banger",
+    "sound": "ksi",
+    "color": "springgreen",
+    "endpoint": "rYY40cetwekQlMC0PCQm90SOGzI5ieU7"
+  },
+  {
     "name": "What the helll",
     "sound": "whatthehell",
     "color": "green",
@@ -492,13 +498,13 @@
     "endpoint": "xcqDcRYsGIZnbLYNqqCtgqVaDfbKsArv"
   },
   {
-    "name": "Vidéo Drôle D'Un Gars Ivre Saoul 1",
+    "name": "Mon hélice 1",
     "sound": "helice1",
     "color": "chartreuse",
     "endpoint": "t19iofFEkAMBZiTkSBpTBR5EYNF6d7BO"
   },
   {
-    "name": "Vidéo Drôle D'Un Gars Ivre Saoul 2",
+    "name": "Mon hélice 2",
     "sound": "helice2",
     "color": "chartreuse",
     "endpoint": "J6sqIT7jK68uw25lAKIvJLDSF8TUaaip"
@@ -538,5 +544,95 @@
     "sound": "jaidloua",
     "color": "yellow",
     "endpoint": "oNKvKhQ5YKfgNACJKBENYVU87fVVIlyb"
+  },
+  {
+    "name": "Bonne fête Kevin",
+    "sound": "kevin1",
+    "color": "orange",
+    "endpoint": "u5vsRCrD0S8DxaoFdVc929ITTy4BPzF5"
+  },
+  {
+    "name": "Ça va être tout noir, tg",
+    "sound": "toutnoir",
+    "color": "noir",
+    "endpoint": "wann9e82JOnNt68HewO63JzUR43E3fpI"
+  },
+  {
+    "name": "Oh shit echo",
+    "sound": "ohshit",
+    "color": "green",
+    "endpoint": "xuj1oRjXj8bh2iydrxTHOonRFLJkoBg6"
+  },
+  {
+    "name": "Are you crazy in the head?",
+    "sound": "gsp1",
+    "color": "darkblue",
+    "endpoint": "jN52RrvIfBerhhEwWM9USsckiy2IY8HP"
+  },
+  {
+    "name": "Ships don't sink because of the water around them",
+    "sound": "gsp2",
+    "color": "darkblue",
+    "endpoint": "czITiWqmkLRACWiTRdFrjS2AS0WRnJXu"
+  },
+  {
+    "name": "Some morning are harder than others",
+    "sound": "gsp3",
+    "color": "darkblue",
+    "endpoint": "t7pCBulNckL5d5o3IP7biJMkS2B0V0jf"
+  },
+  {
+    "name": "Are you intoxicated man?",
+    "sound": "gsp4",
+    "color": "darkblue",
+    "endpoint": "Gua0w49mryEAYF6tpJ2YOr6Snty203gJ"
+  },
+  {
+    "name": "Puceau moi?",
+    "sound": "puceau",
+    "color": "pink",
+    "endpoint": "bF87w7FYHdICy40EZYJYpUxMHnG0h7O7"
+  },
+  {
+    "name": "wah00 cigarettes",
+    "sound": "cigarettes",
+    "color": "darkgoldenrod",
+    "endpoint": "G51dRBpagqNxdJZIbZz7i1oFb3dfHRKo"
+  },
+  {
+    "name": "Your mouth is moving a lot",
+    "sound": "yappa",
+    "color": "darkslategray",
+    "endpoint": "8ZZ8AN5ceyDJoeoT5cFNJ91QQEyzBE80"
+  },
+  {
+    "name": "Je m'appelle Fatti",
+    "sound": "pain",
+    "color": "brown",
+    "endpoint": "XMN2ogEH7L9oxXnJylmUtVasBEsOU9PE"
+  },
+  {
+    "name": "Bomboclat",
+    "sound": "bomboclat",
+    "color": "lightsalmon",
+    "endpoint": "MrLYq8ZqbuHkm24C9djCyKojaVj9mcDr"
+  },
+  {
+    "name": "You are my sunshine",
+    "sound": "sunshine",
+    "color": "yellow",
+    "endpoint": "gKrNHxW0MehBSVvEvLSmmQ0DBvT2cgMh"
+  },
+  {
+    "name": "You are my sunshine (drill)",
+    "sound": "sunshinedrill",
+    "color": "gold",
+    "endpoint": "7GUT7hqgC6okmI4jTyOn9V1ofzKBYaQ7"
+  },
+  {
+    "name": "Smells sour like funky",
+    "sound": "smellssour",
+    "color": "red",
+    "endpoint": "bKsRSR2UTjBxAmhWsZwbyzYjY3aVKYDl"
   }
 ]
