@@ -69,6 +69,10 @@ export class YapperComponent implements OnInit {
     this.currentSound.play();
   }
 
+  stopSound() {
+    this.currentSound?.pause();
+  }
+
   onSearchChange(searchTerm: string) {
     this.searchSubject.next(searchTerm);
   }

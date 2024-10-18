@@ -9,18 +9,28 @@
     </div>
   }
   @else {
-    <form class="d-flex align-items-center my-3 pb-2" (ngSubmit)="onSubmit()">
-      <label for="search" class="form-label m-0">Search:</label>
-      <input
-        type="search"
-        class="form-control w-25 mx-2"
-        id="search"
-        name="search"
-        maxlength="30"
-        [(ngModel)]="searchTerm"
-        (ngModelChange)="onSearchChange($event)"
-      >
-    </form>
+    <div class="d-flex">
+      <div class="col">
+        <form class="d-flex align-items-center my-3 pb-2" (ngSubmit)="onSubmit()">
+          <label for="search" class="form-label m-0">Search:</label>
+          <input
+            type="search"
+            class="form-control w-25 mx-2"
+            id="search"
+            name="search"
+            maxlength="30"
+            [(ngModel)]="searchTerm"
+            (ngModelChange)="onSearchChange($event)"
+          >
+        </form>
+      </div>
+      <div class="col align-content-center text-end">
+        <button class="btn btn-primary" (click)="stopSound()">
+          stop sound 
+          <i class="bi bi-pause-fill"></i>
+        </button>
+      </div>
+    </div>
 
     @if (currentButtons.length > 0) {
       <div class="yapper__button-grid p-1">
