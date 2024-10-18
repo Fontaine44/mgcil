@@ -4,6 +4,7 @@ import { HttpService } from '../../shared/services/http.service';
 import { FormsModule } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, of, Subject, switchMap } from 'rxjs';
 import { environment } from '../../../environments/environment';
+import { AlertService } from '../../shared/services/alert.service';
 
 @Component({
   selector: 'app-yapper',
@@ -22,7 +23,8 @@ export class YapperComponent implements OnInit {
   currentSound?: HTMLAudioElement;
 
   constructor(
-    private httpService: HttpService
+    private httpService: HttpService,
+    private alertService: AlertService,
   ) {
     this.searchSubject
     .pipe(
@@ -96,6 +98,14 @@ export class YapperComponent implements OnInit {
   }
 
   sendSuggestion(suggestion: string) {
-    this.httpService.post(`${this.apiURL}/suggestions`, { suggestion }).subscribe();
+    this.httpService.post(`${this.apiURL}/suggestions`, { suggestion }).subscribe({
+      next: () => {
+        this.alertService.addAlert('success', 'Suggestion sent successfully');
+      },
+      error: (error) => {
+        console.error(error);
+        this.alertService.addAlert('danger', 'Error sending suggestion womp womp');
+      }
+    });
   }
 }

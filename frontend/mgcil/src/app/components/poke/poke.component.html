@@ -1,0 +1,78 @@
+<div class="d-flex flex-column gap-1 p-2">
+  
+  @if (userDelegation !== null) {
+    <span class="my-2">Your delegation: <b>{{delegations[userDelegation-1].name}}</b></span>
+  } @else {
+    <h1 class="text-center">
+      SELECT YOUR DELEGATION:
+    </h1>
+  }
+
+  <div class="poke-grid">
+    @for (dele of delegations; track dele.id) {
+      @if (userDelegation !== dele.id) {
+        <div class="dele-card d-flex flex-column align-items-center p-2 gap-3">
+
+          <h5 class="mb-0">{{dele.name}}</h5>
+
+          <img [src]="dele.logo" [alt]="dele.name" height="100" width="150"/>
+
+          @if (userDelegation !== null) {
+            <button class="btn btn-primary"
+              [disabled]="dele.disabled"
+              (click)="sendPoke(dele.id)"
+            >
+              <img src="poke_icon.svg" height="15"/>
+              @if (dele.disabled) {
+                <span>  Poked</span>
+              } @else {
+                <span>  Poke</span>
+              }
+            </button>
+          } @else {
+            <button class="btn btn-primary"
+              type="button"
+              data-bs-toggle="modal"
+              data-bs-target="#selectModal"
+              (click)="userModalChoice = dele.id"
+            >
+              SELECT
+            </button>
+          }
+        </div>
+      }
+    }
+  </div>
+</div>
+
+@if (loading) {
+  <div class="loading-overlay">
+    <div class="d-flex justify-content-center align-items-center h-100">
+      <div class="spinner spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  </div>
+}
+
+<!-- Modal -->
+@if (userModalChoice !== null) {
+  <div class="modal fade" id="selectModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="selectModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="selectModalLabel">Delegation selection</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to select <b>{{delegations[userModalChoice-1].name}}</b> to be your delegation? <br>
+          It will be saved and you won't be able to change it.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-success" data-bs-dismiss="modal" (click)="selectDelegation(userModalChoice)">CONFIRM</button>
+        </div>
+      </div>
+    </div>
+  </div>
+}

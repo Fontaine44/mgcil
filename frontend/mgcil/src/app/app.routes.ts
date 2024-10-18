@@ -36,6 +36,10 @@ export const routes: Routes = [
     loadComponent: () => import('./components/tacoteq/tacoteq.component').then(m => m.TacoteqComponent)
   },
   {
+    path: 'poke',
+    loadComponent: () => import('./components/poke/poke.component').then(m => m.PokeComponent)
+  },
+  {
     path: '**',
     redirectTo: '',
   }
