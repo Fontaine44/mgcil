@@ -97,7 +97,7 @@ export class PokeComponent implements OnInit {
 
   loading: boolean = false;
   userDelegation: number | null = null;
-  userModalChoice: number = 0;
+  userModalChoice: number | null = null;
   pokedDelegations: any = [];
 
   constructor(
@@ -108,7 +108,7 @@ export class PokeComponent implements OnInit {
       debounceTime(1000)
     ).subscribe(() => {
       this.loading = true;
-      this.httpService.post(`${environment.apiUrl}/poke`,
+      this.httpService.post(`${environment.apiUrl}/pokes`,
         { 
           pokee_ids: this.pokedDelegations,
           poker_id: this.userDelegation
@@ -135,16 +135,15 @@ export class PokeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.fetchDelegations();
-
     const storedDelegation = localStorage.getItem('userDelegation');
     if (storedDelegation) {
       this.userDelegation = parseInt(storedDelegation, 10);
+      this.fetchDelegations();
     }
   }
 
   fetchDelegations() {
-    this.httpService.get(`${environment.apiUrl}/poke`).subscribe({
+    this.httpService.get(`${environment.apiUrl}/pokes/${this.userDelegation}`).subscribe({
       next: (response) => {
         this.updateDelegations(response);
       },
@@ -156,15 +155,17 @@ export class PokeComponent implements OnInit {
   }
 
   updateDelegations(response: any) {
-    this.delegations = this.delegations.map(delegation => {
-      const responseDelegation = response.find((responseDelegation: any) => responseDelegation.id === delegation.id);
-      return { ...delegation, disabled: responseDelegation.disabled };
+    this.delegations.forEach((delegation, index) => {
+      delegation.disabled = response[index] === 1;    // 1 means already poked
     });
   }
 
-  selectDelegation(id: number) {
+  selectDelegation(id: number | null) {
     this.userDelegation = id;
-    localStorage.setItem('userDelegation', id.toString());
+    this.fetchDelegations();
+    if (id !== null) {
+      localStorage.setItem('userDelegation', id.toString());
+    }
   }
 
   sendPoke(id: number) {

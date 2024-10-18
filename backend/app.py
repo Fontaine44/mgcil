@@ -1,14 +1,17 @@
 import os
 import requests
 import threading
+import oracledb
 import pandas as pd
-from flask import Flask, request, send_file
+from flask import Flask, jsonify, request, send_file
 from flask_cors import CORS
 from dotenv import load_dotenv
 
 load_dotenv(override=True)
 BUCKET_URL = os.getenv('BUCKET_URL')
 GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
+ORACLE_PASSWORD = os.getenv('ORACLE_PASSWORD')
+CONNECTION_STR = "(description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.ca-montreal-1.oraclecloud.com))(connect_data=(service_name=g8776c1047b3446_fkmjnxbscms692ba_high.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))"
 
 app = Flask(__name__)
 CORS(app)
@@ -95,6 +98,60 @@ def tts():
     response = requests.post(f"https://texttospeech.googleapis.com/v1beta1/text:synthesize?key={GOOGLE_API_KEY}", json=body)
 
     return response.json(), response.status_code
+
+@app.route('/pokes/<dele_id>', methods=['GET'])
+def poke_status(dele_id):
+    # Return a list of all schools and the poke status
+
+    with oracledb.connect(
+        user="MGCIL",
+        password=ORACLE_PASSWORD,
+        dsn=CONNECTION_STR) as conn:
+
+        with conn.cursor() as cursor:
+            results = cursor.execute("SELECT * FROM delegations WHERE ID = :1", [dele_id])
+
+            dele = results.fetchone()[2:]
+
+    return jsonify(dele)
+
+@app.route('/pokes', methods=['POST'])
+def send_poke():
+    data = request.get_json()
+    poker_id = data.get('poker_id')
+    pokee_ids = data.get('pokee_ids')
+    pokee_ip = request.remote_addr
+    
+    with oracledb.connect(
+        user="MGCIL",
+        password=ORACLE_PASSWORD,
+        dsn=CONNECTION_STR) as conn:
+
+        with conn.cursor() as cursor:
+            # Update delegations
+
+            # Update poker
+            query = "UPDATE delegations SET "
+            for pokee_id in pokee_ids:
+                query += f'"{pokee_id}" = 1, '
+            query = query[:-2]
+            query += f' WHERE "ID" = {poker_id}'
+            
+            cursor.execute(query)
+
+            # Update pokees and insert pokes
+            for pokee_id in pokee_ids:
+                cursor.execute(f'UPDATE delegations SET "{poker_id}" = 0 WHERE "ID" = {pokee_id}')
+                
+                cursor.execute("INSERT INTO pokes (poker_id, pokee_id, poker_ip) VALUES (:1, :2, :3)", [poker_id, pokee_id, pokee_ip])
+
+            conn.commit()
+
+            results = cursor.execute("SELECT * FROM delegations WHERE ID = :1", [poker_id])
+
+            dele = results.fetchone()[2:]
+
+    return jsonify(dele)
 
 
 if __name__ == '__main__':
