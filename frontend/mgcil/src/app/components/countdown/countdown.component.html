@@ -1,0 +1,30 @@
+<div class="d-flex flex-column p-3 gap-3">
+  <h1 class="text-center">EngGames Countdown</h1>
+
+  <div class="row countdown no-wrap mx-2 p-2">
+    <div class="col-12 col-lg-3 my-2 text-center">
+      <span class="number">{{days}}</span>
+      <br>
+      <span class="label">Days</span>
+    </div>
+    <div class="col-12 col-lg-3 my-2 text-center">
+      <span class="number">{{hours}}</span>
+      <br>
+      <span class="label">Hours</span>
+    </div>
+    <div class="col-12 col-lg-3 my-2 text-center">
+      <span class="number">{{minutes}}</span>
+      <br>
+      <span class="label">Minutes</span>
+    </div>
+    <div class="col-12 col-lg-3 my-2 text-center">
+      <span class="number">{{seconds}}</span>
+      <br>
+      <span class="label">Seconds</span>
+    </div>
+  </div>
+
+  <div class="text-center">
+    <button class="btn btn-primary" (click)="share()">Share countdown</button>
+  </div>
+</div>

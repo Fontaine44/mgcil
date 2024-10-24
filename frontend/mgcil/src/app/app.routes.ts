@@ -40,6 +40,10 @@ export const routes: Routes = [
     loadComponent: () => import('./components/poke/poke.component').then(m => m.PokeComponent)
   },
   {
+    path: 'countdown',
+    loadComponent: () => import('./components/countdown/countdown.component').then(m => m.CountdownComponent)
+  },
+  {
     path: '**',
     redirectTo: '',
   }

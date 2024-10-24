@@ -1,0 +1,46 @@
+.countdown {
+  font-family: "Oxanium", sans-serif;
+  border: 1px solid #333;
+  border-radius: 5px;
+  background-color: #333;
+
+  .number {
+    font-size: 4rem;
+    color: red;
+  }
+
+  .label {
+    font-size: 2rem;
+    color: white;
+  }
+
+  @media screen and (max-width: 1200px) {
+    .number {
+      font-size: 3rem;
+    }
+  
+    .label {
+      font-size: 2rem;
+    }
+  }
+
+  @media screen and (max-width: 992px) {
+    .number {
+      font-size: 5rem;
+    }
+
+    .label {
+      font-size: 2rem;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .number {
+      font-size: 4rem;
+    }
+
+    .label {
+      font-size: 1.5rem;
+    }
+  }
+}
