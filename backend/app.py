@@ -44,7 +44,11 @@ def get_sound(sound):
 def sounds():
     return send_file('static/sounds.json', mimetype='application/json')
 
-@app.route('/analytics', methods=['GET'])
+@app.route('/degrise', methods=['GET'])
+def degrise():
+    return send_file('static/degrise.json', mimetype='application/json')
+
+@app.route('/analytics/yapper', methods=['GET'])
 def get_analytics():
     df = pd.read_csv(BUCKET_URL+'analytics.csv')
     return df.to_html(index=False), 200
@@ -152,6 +156,20 @@ def send_poke():
             dele = results.fetchone()[2:]
 
     return jsonify(dele)
+
+@app.route('/analytics/pokes/<dele_id>', methods=['GET'])
+def analytcics_poke(dele_id):
+    with oracledb.connect(
+        user="MGCIL",
+        password=ORACLE_PASSWORD,
+        dsn=CONNECTION_STR) as conn:
+
+        with conn.cursor() as cursor:
+            cursor.execute("SELECT * FROM pokes WHERE poker_id = :1", [dele_id])
+
+            pokes = cursor.fetchall()
+
+    return jsonify(pokes)
 
 
 if __name__ == '__main__':

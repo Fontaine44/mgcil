@@ -44,6 +44,10 @@ export const routes: Routes = [
     loadComponent: () => import('./components/countdown/countdown.component').then(m => m.CountdownComponent)
   },
   {
+    path: 'degrise',
+    loadComponent: () => import('./components/degrise/degrise.component').then(m => m.DegriseComponent)
+  },
+  {
     path: '**',
     redirectTo: '',
   }

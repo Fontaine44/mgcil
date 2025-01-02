@@ -1,0 +1,92 @@
+[
+  {
+    "name": "Boom Big Justice",
+    "sound": "costco3",
+    "color": "darkred",
+    "endpoint": "tI1Xcd2OwWooguPgYn7vyCd2rmywa2fP"
+  },
+  {
+    "name": "Boom A.J.",
+    "sound": "costco4",
+    "color": "darkred",
+    "endpoint": "UV9qnqNd9GWJdDcRYwKgLPntrmPDQtpN"
+  },
+  {
+    "name": "BOOM OR DOOM?",
+    "sound": "costco2",
+    "color": "darkred",
+    "endpoint": "IE8osNrJVvOtLz2sjCsEt3LTVTr17Sji"
+  },
+  {
+    "name": "Evil Alien",
+    "sound": "01_skull-2",
+    "color": "lawngreen",
+    "endpoint": "EoNgazffx4nn5S3Lg9zsCmiUsUoiCj4m"
+  },
+  {
+    "name": "Alien arrival",
+    "sound": "alien-arrival-sound",
+    "color": "lawngreen",
+    "endpoint": "PkiMzMStYOjouUobWQ5AD5t9iQRp0c0l"
+  },
+  {
+    "name": "Alien giggle",
+    "sound": "alien-giggle",
+    "color": "lawngreen",
+    "endpoint": "jDIf1tqdqRHHgicIl5ZQNihRgYQaYfpZ"
+  },
+  {
+    "name": "Arquivo x",
+    "sound": "arquivo-x",
+    "color": "lawngreen",
+    "endpoint": "rZztq7sLeYkhT9jn1TXNNZcbft2eRBbr"
+  },
+  {
+    "name": "Mr Beast explosion",
+    "sound": "beast-explosion",
+    "color": "lawngreen",
+    "endpoint": "uxWgypyRVsy1rYGIgt3mCfxhPVBENuWn"
+  },
+  {
+    "name": "Exterminate",
+    "sound": "exterminate-dalek",
+    "color": "lawngreen",
+    "endpoint": "foJ2WSecSax76VXcdAGB9f9QpJdmxgut"
+  },
+  {
+    "name": "Freaky Alien",
+    "sound": "freakyalien",
+    "color": "lawngreen",
+    "endpoint": "bFbZaYf8btnQyRvqZ4GLVIQTdvqdN4qS"
+  },
+  {
+    "name": "Aliens are coming",
+    "sound": "ids-aliens_1",
+    "color": "lawngreen",
+    "endpoint": "7xIZwQPCBryAPe7VFjjFKnSUA6oKixgh"
+  },
+  {
+    "name": "Aliens are real",
+    "sound": "sssprite-aliens-are-r-e-a-l",
+    "color": "lawngreen",
+    "endpoint": "xaSRYBKc9L3GCxr9tvBkXvU2QZgWGaXa"
+  },
+  {
+    "name": "Alien annihilation",
+    "sound": "the-alien-annihilation",
+    "color": "lawngreen",
+    "endpoint": "qmFPys0UPnIVJLVrIHpO1EnXlIh51GC1"
+  },
+  {
+    "name": "Alien beat",
+    "sound": "alien-beat",
+    "color": "lawngreen",
+    "endpoint": "11eJ5ugg1iz07DA6b9pon76TsPUdSzvB"
+  },
+  {
+    "name": "Alien yapping",
+    "sound": "alien-yapping",
+    "color": "lawngreen",
+    "endpoint": "gcVeOKxsxmEQY6qQUmXV9KGqEyzmEfMz"
+  }
+]
