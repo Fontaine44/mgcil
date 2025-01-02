@@ -2,19 +2,19 @@
   {
     "name": "Boom Big Justice",
     "sound": "costco3",
-    "color": "darkred",
+    "color": "yellow",
     "endpoint": "tI1Xcd2OwWooguPgYn7vyCd2rmywa2fP"
   },
   {
     "name": "Boom A.J.",
     "sound": "costco4",
-    "color": "darkred",
+    "color": "yellow",
     "endpoint": "UV9qnqNd9GWJdDcRYwKgLPntrmPDQtpN"
   },
   {
     "name": "BOOM OR DOOM?",
     "sound": "costco2",
-    "color": "darkred",
+    "color": "yellow",
     "endpoint": "IE8osNrJVvOtLz2sjCsEt3LTVTr17Sji"
   },
   {
@@ -88,5 +88,77 @@
     "sound": "alien-yapping",
     "color": "lawngreen",
     "endpoint": "gcVeOKxsxmEQY6qQUmXV9KGqEyzmEfMz"
+  },
+  {
+    "name": "Cowboy curtis",
+    "sound": "cowboy-curtis",
+    "color": "saddlebrown",
+    "endpoint": "GpxSbbcclgNJYxH98mnA3CIS4YYfxKYJ"
+  },
+  {
+    "name": "Far west",
+    "sound": "eder",
+    "color": "saddlebrown",
+    "endpoint": "UKUH8zereCU69qD4cT1rgIn5W9nyiEdQ"
+  },
+  {
+    "name": "Gunshots",
+    "sound": "gunshots",
+    "color": "saddlebrown",
+    "endpoint": "seg0yfDzFbRxyG8QyetgFjFnyYRHIjUq"
+  },
+  {
+    "name": "Horse",
+    "sound": "horse-sound",
+    "color": "saddlebrown",
+    "endpoint": "TND7gP12DVy7NyQtNbtcuAKlrejStn4I"
+  },
+  {
+    "name": "Nugget Cowboy 1",
+    "sound": "nugget-cowboy",
+    "color": "saddlebrown",
+    "endpoint": "uGXOFQQ2NZ4c5isrtw3LLoHjtsFpYjhf"
+  },
+  {
+    "name": "Nugget Cowboy 2",
+    "sound": "cotton-eye-joe-nuggets",
+    "color": "saddlebrown",
+    "endpoint": "6JZYNC99e4y5atF5rh7YK2Yx3dS5aaYF"
+  },
+  {
+    "name": "YEE HAW",
+    "sound": "untitled_889",
+    "color": "saddlebrown",
+    "endpoint": "5ohXI1QRGeTe5TLVEeMuff4uBXmRpYJT"
+  },
+  {
+    "name": "Old Town Road",
+    "sound": "untitled_sjFN5xN",
+    "color": "saddlebrown",
+    "endpoint": "8qnVBONO5eeA0X8zcBIbaXjI3ZtZnIly"
+  },
+  {
+    "name": "Old Town Road (flute)",
+    "sound": "old-town-road-bad-flute-cover-14",
+    "color": "saddlebrown",
+    "endpoint": "GOLxRVuYQGFgeIjyOFHFL236TXxdB7A4"
+  },
+  {
+    "name": "You are my sunshine",
+    "sound": "you-are-my-sunshine-cowboy",
+    "color": "saddlebrown",
+    "endpoint": "qiG1PNoOSqpRrNxCz3WoMNXOgFUXjYTV"
+  },
+  {
+    "name": "Cowboys face off",
+    "sound": "cowboys",
+    "color": "saddlebrown",
+    "endpoint": "nValaHkljYl3vGROo0aPOBBg8PJ0Ejvg"
+  },
+  {
+    "name": "USA Cowboys",
+    "sound": "america-eagle-gunshots",
+    "color": "saddlebrown",
+    "endpoint": "bzjIXxQ64tuLCVfDPjLRucHQzurwIP8Q"
   }
 ]
